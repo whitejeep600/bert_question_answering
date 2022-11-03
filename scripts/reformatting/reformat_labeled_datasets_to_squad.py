@@ -1,0 +1,26 @@
+# todo output treningowy zbierać do porównania modeli
+#  a no i loss, żeby stworzyć wykres
+
+import json
+from pathlib import Path
+
+if __name__ == '__main__':
+    contexts = json.loads(Path('raw_data/context.json').read_text())
+
+    for split_name in ['valid', 'train']:
+        dataset = json.loads(Path(f'raw_data/{split_name}.json').read_text())
+        result = []
+        for item in dataset:
+            result.append({'id': item['id'],
+                           'title': '',
+                           'context': contexts[item['relevant']],
+                           'question': item['question'],
+                           'answers': {
+                               "answer_start": [item['answer']['start']],
+                               "text": [item['answer']['text']]
+                           }
+                           })
+        result = {'data': result}
+        with open(f'data/{split_name}_squad_format.json', 'w', encoding='utf8') as output_file:
+            output_file.write(json.dumps(result, indent=4, ensure_ascii=False))
+
