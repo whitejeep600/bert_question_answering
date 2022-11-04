@@ -10,7 +10,7 @@ python3.9 scripts/reformatting/reformat_labeled_datasets_to_squad.py
 # I realized I could use the same script as for prediction, which is why
 # it's in the prediction directory despite being used to training here.
 python3.9 scripts/prediction/run_qa.py \
---model_name_or_path hfl/chinese-roberta-wwm-ext \
+--model_name_or_path hfl/chinese-roberta-wwm-ext-large \
 --do_train \
 --do_eval \
 --learning_rate 3e-5 \
