@@ -1,5 +1,7 @@
 DISCLAIMER: the Python scripts in scripts/prediction and scripts/training are either directly copied from the publicly available Huggingface scripts, or copied and slightly modified for the purposes of this task.
 
+The description below was prepared for task graders.
+
 Packages required to run:
 - datasets
 - gdown
